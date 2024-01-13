@@ -8,6 +8,23 @@ class Scene2 extends Phaser.Scene {
   taodiem(){
     this.scoreLabel = this.add.bitmapText( 140, 50, "pixel" , "0" , 40 );
   }
+  Sound(){
+    this.music = this.sound.add("sound_music");
+    var musicConfig = {
+      mute: false,
+      volume: 1,
+      rate: 1,
+      detune: 0,
+      seek: 0,
+      loop: false,
+      delay: 0
+    };
+    this.music.play(musicConfig);
+
+    this.music_die = this.sound.add("sound_die");
+    this.music_bay = this.sound.add("sound_bay");
+    this.music_enemy = this.sound.add("sound_enemy");
+  }
   groupCollier(){
     this.gr_ongtren = this.physics.add.group();
     this.gr_ongduoi = this.physics.add.group();
@@ -21,6 +38,7 @@ class Scene2 extends Phaser.Scene {
       this.gr_ongtren,
       ObjectGame.birt,
       (chim ,ongtren) => {
+        this.music_die.play();
         this.physics.world.disable(ongtren);
         ObjectGame.birt.clearPhysics();
       },
@@ -30,6 +48,7 @@ class Scene2 extends Phaser.Scene {
       this.gr_ongduoi,
       ObjectGame.birt,
       (chim ,ongduoi) => {
+        this.music_die.play();
         this.physics.world.disable(ongduoi);
         ObjectGame.birt.clearPhysics();   
       },
@@ -76,7 +95,7 @@ class Scene2 extends Phaser.Scene {
     this.bang.hide();
 
     this.enemy = new Enemy(this);
-    
+    this.Sound();
   }
   update(time){
     this.scoreLabel.text = ObjectGame.Score;

@@ -20,7 +20,10 @@ class Scene1 extends Phaser.Scene{
         this.load.image("enemy1", "asests/images/enemy.png" );
         this.load.image("enemy2", "asests/images/enemy2.png" );
 
-
+        this.load.audio("sound_music" , "asests/audio/music.mp3");
+        this.load.audio("sound_die" , "asests/audio/die.mp3");
+        this.load.audio("sound_bay" , "asests/audio/bay.mp3");
+        this.load.audio("sound_enemy" , "asests/audio/enemy.mp3");
 
         //load font
         this.loadFont();

@@ -20,6 +20,7 @@ class Enemy extends Phaser.GameObjects.Image{
     }
     update(kc = 0){
         if( this.enemy1.x < 0 ){
+            this.sceneObj.music_enemy.play();
             var x1 = Phaser.Math.Between( 220 , config.width + 200 );
             var y1 = Phaser.Math.Between( 100 , config.height );
             this.enemy1.setPosition( x1 , y1);

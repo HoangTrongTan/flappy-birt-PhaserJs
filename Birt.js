@@ -24,6 +24,7 @@ class Birt extends Phaser.GameObjects.Sprite {
     }
     if(this.sceneObj.cursorkey.space.isDown){
         // this.body.velocity.y -= 30;  
+        this.sceneObj.music_bay.play();
         this.active = true;
         this.body.setVelocityY(-200);
     }
@@ -48,11 +49,11 @@ class Birt extends Phaser.GameObjects.Sprite {
   update() {
     //   console.log("vào cào", this.y); 
     if (this.y >= game.config.height - 30) {
-        this.setPosition(this.x_axis, 335);
-        this.sceneObj.physics.world.disable(this);
-        this.alpha = 0.5;
-        this.alive = false;
-        return false;
+      this.setPosition(this.x_axis, 335);
+      this.sceneObj.physics.world.disable(this);
+      this.alpha = 0.5;
+      this.alive = false;
+      this.sceneObj.music_die.play();
     }
   }
 }
