@@ -24,6 +24,7 @@ class Scene1 extends Phaser.Scene{
         this.load.audio("sound_die" , "asests/audio/die.mp3");
         this.load.audio("sound_bay" , "asests/audio/bay.mp3");
         this.load.audio("sound_enemy" , "asests/audio/enemy.mp3");
+        this.load.audio("sound_pass" , "asests/audio/pass.mp3");
 
         //load font
         this.loadFont();

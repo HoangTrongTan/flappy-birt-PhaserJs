@@ -24,6 +24,7 @@ class Scene2 extends Phaser.Scene {
     this.music_die = this.sound.add("sound_die");
     this.music_bay = this.sound.add("sound_bay");
     this.music_enemy = this.sound.add("sound_enemy");
+    this.music_pass = this.sound.add("sound_pass");
   }
   groupCollier(){
     this.gr_ongtren = this.physics.add.group();
@@ -59,6 +60,7 @@ class Scene2 extends Phaser.Scene {
       ObjectGame.birt,
       (chim, khoangcach) => {
           ObjectGame.Score += 1;
+          this.music_pass.play();
           this.scoreLabel.text = ObjectGame.Score;
           this.physics.world.disable(khoangcach);
       },
