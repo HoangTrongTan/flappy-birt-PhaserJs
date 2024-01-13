@@ -12,6 +12,6 @@ var config = {
 };
 var ObjectGame = {
     birt: null,
-    Score: 4,
+    Score: 0,
 }
 var game = new Phaser.Game(config);
